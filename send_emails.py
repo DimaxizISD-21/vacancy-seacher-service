@@ -7,11 +7,11 @@ from django.core.mail import EmailMultiAlternatives
 # Делаем send_emails видимым для Django
 project = os.path.dirname(os.path.abspath('manage.py'))
 sys.path.append(project)
-os.environ['DJANGO_SETTINGS_MODULE'] = "scraping_service.settings"
+os.environ['DJANGO_SETTINGS_MODULE'] = "vacancy_seacher.settings"
 
 django.setup()
 from scraping.models import Vacancy, Error, Url
-from scraping_service.settings import EMAIL_HOST_USER
+from vacancy_seacher.settings import EMAIL_HOST_USER
 
 ADMIN_USER = EMAIL_HOST_USER
 
