@@ -5,6 +5,8 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+
+*.sqlite3
 # C extensions
 *.so
 
@@ -149,4 +151,4 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
-/vacancy_seacher/db.sqlite3
+
