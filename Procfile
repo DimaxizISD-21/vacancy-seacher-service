@@ -1,0 +1,1 @@
+web: gunicorn vacancy_seacher.wsgi
