@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %} Logout {% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col">
+        <h2 class="text-center my-3">Сервис по сбору и рассылки вакансий</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <h4 class="my-2">Для просмотра доступных вакансий, заполните форму по одному из полей (город / язык программирования).</h4>
+        <form method="GET" action="{% url 'list' %}">
+            <div class="form-group">
+                {{ form.as_p }}
+            </div>
+            <button type="submit" class="btn btn-primary">Найти</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %} List {% endblock %}
+
+{% block content %}
+
+    {% if object_list %}
+        <h3 class="text-center">Результаты согласно Вашего запроса.</h3>
+        {% for vacancy in object_list %}
+            <div class="card my-3">
+                <h5 class="card-header"><a href="{{ vacancy.url }}">{{ vacancy.title }}</a></h5>
+                <div class="card-body">
+                    <h5>Компания: {{ vacancy.company }}</h5>
+                    <p class="card-text">{{ vacancy.description }}</p>
+                    <b>{{ vacancy.city.name }} | {{ vacancy.language.name }} | {{ vacancy.timestamp }}</b>
+                </div>
+            </div>
+        {% endfor %}
+
+        <div class="row">
+            <div class="col">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        {% if object_list.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?city={{ city }}&language={{ language }}&page={{ object_list.previous_page_number }}">Предыдущая</a>
+                            </li>
+                        {% endif %}
+
+                        {% for page in object_list.paginator.page_range %}
+                            {% if object_list.number == page %}
+                                <li class="page-item active">
+                                    <a class="page-link" href="?city={{ city }}&language={{ language }}&page={{ page }}">{{ page }}</a>
+                                </li>
+                            {% elif page > object_list.number|add:-5 and page < object_list.number|add:5 %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?city={{ city }}&language={{ language }}&page={{ page }}">{{ page }}</a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+
+                        {% if object_list.has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="?city={{ city }}&language={{ language }}&page={{ object_list.next_page_number }}">Следующая</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+    {% else %}
+        <h3 class="text-center">К сожалению по вашему запросу ничего не найдено.</h3>
+    {% endif %}
+
+{% endblock %}
+

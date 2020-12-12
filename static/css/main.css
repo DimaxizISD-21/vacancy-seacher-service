@@ -1,0 +1,7 @@
+@font-face {
+    font-family: OleoScript;
+    src: url(../fonts/OleoScript=Regular.ttf);
+}
+#brand {
+    font-family: 'Oleo Script', cursive;
+}
