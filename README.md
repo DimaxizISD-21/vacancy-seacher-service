@@ -1,1 +1,1 @@
-"# vacancy-seacher-service" 
+# Vacancy-Seacher-Service project
